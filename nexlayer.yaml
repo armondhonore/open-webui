@@ -1,0 +1,14 @@
+application:
+  name: open-webui
+  pods:
+    - name: app
+      image: ghcr.io/open-webui/open-webui:main
+      path: /
+      servicePorts:
+        - 8080
+      vars:
+        WEBUI_SECRET_KEY: "secret-changeme"
+      volumes:
+        - name: data
+          mountPath: /app/backend/data
+          size: 5Gi
